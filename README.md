@@ -4,12 +4,6 @@ This is the official Homebrew tap for eigenwallet.
 
 ## Installation
 
-### Quick install (one command)
-```bash
-brew install eigenwallet/eigenwallet/eigenwallet
-```
-
-### Or tap first, then install
 ```bash
 brew tap eigenwallet/eigenwallet
 brew install eigenwallet
