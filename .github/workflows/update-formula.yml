@@ -17,8 +17,14 @@ jobs:
         run: |
           set -euo pipefail
 
-          # Get the latest release tag
-          LATEST_RELEASE=$(gh release list --repo eigenwallet/core --limit 1 --json tagName --jq '.[0].tagName')
+          # Get the latest non-preview release tag
+          LATEST_RELEASE=$(gh release list --repo eigenwallet/core --json tagName,isPrerelease --jq '.[] | select(.isPrerelease == false) | .tagName' | head -n 1)
+
+          if [[ -z "$LATEST_RELEASE" ]]; then
+            echo "No stable release found"
+            exit 1
+          fi
+
           echo "Latest release: $LATEST_RELEASE"
           echo "LATEST_RELEASE=$LATEST_RELEASE" >> $GITHUB_ENV
 
