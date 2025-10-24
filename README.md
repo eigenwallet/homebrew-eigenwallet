@@ -1,6 +1,6 @@
 # Homebrew Tap for eigenwallet
 
-This is the official Homebrew tap for eigenwallet.
+This is the official Homebrew tap for [eigenwallet](https://github.com/eigenwallet/core).
 
 ## Installation
 
