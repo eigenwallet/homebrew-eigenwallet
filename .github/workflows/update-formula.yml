@@ -18,7 +18,7 @@ jobs:
           set -euo pipefail
 
           # Get the latest non-preview release tag
-          LATEST_RELEASE=$(gh release list --repo eigenwallet/core --json tagName,isPrerelease --jq '.[] | select(.isPrerelease == false) | .tagName' | head -n 1)
+          LATEST_RELEASE=$(gh release list --repo eigenwallet/core --json tagName,isPrerelease --jq '[.[] | select(.isPrerelease == false) | .tagName][0]')
 
           if [[ -z "$LATEST_RELEASE" ]]; then
             echo "No stable release found"
