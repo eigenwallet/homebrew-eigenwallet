@@ -34,20 +34,15 @@ jobs:
             --pattern "eigenwallet.rb" \
             --dir /tmp
 
-          # Move it to the Formula directory
-          mkdir -p Formula
-          mv /tmp/eigenwallet.rb Formula/eigenwallet.rb
+          # Move it to the Casks directory
+          mkdir -p Casks
+          mv /tmp/eigenwallet.rb Casks/eigenwallet.rb
 
-      - name: Commit and push if changed
+      - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           git add Formula/eigenwallet.rb
-
-          if git diff --staged --quiet; then
-            echo "No changes to formula"
-          else
-            git commit -m "Update eigenwallet formula to ${{ env.LATEST_RELEASE }}"
-            git push
-          fi
+          git commit -m "Update eigenwallet formula to ${{ env.LATEST_RELEASE }}"
+          git push
