@@ -43,10 +43,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          if git diff --quiet Formula/eigenwallet.rb; then
+          git add Formula/eigenwallet.rb
+
+          if git diff --staged --quiet; then
             echo "No changes to formula"
           else
-            git add Formula/eigenwallet.rb
             git commit -m "Update eigenwallet formula to ${{ env.LATEST_RELEASE }}"
             git push
           fi
