@@ -1,13 +1,13 @@
 cask "eigenwallet" do
-  version "4.10.0"
+  version "4.10.1"
 
   on_arm do
-    sha256 "ff57cd00f8c51e56b0d03119042990e9218846358f3c8c73927bfc1bf24b8c18"
+    sha256 "1c0cbabe229d8891f3c53e778a7cc45585eb3f56a0b10124ff19278ee8a77bf9"
     url "https://github.com/eigenwallet/core/releases/download/#{version}/eigenwallet_#{version}_aarch64.dmg"
   end
 
   on_intel do
-    sha256 "06f139969297a5e489c7c7b8a3f49dfdfaa8e0d78cb59cba826f560cc4544a66"
+    sha256 "8ffaed0b412089dd64547e4ea5ed8df366e8602d09234c84eff871b7650f9147"
     url "https://github.com/eigenwallet/core/releases/download/#{version}/eigenwallet_#{version}_x64.dmg"
   end
 
